@@ -7,7 +7,8 @@ import (
 	"strings"
 )
 
-func Logging(returnedErr error) {
+// Create file.log and add errr to it with standard flags (Ldata, Ltime)
+func Logging(errr error) {
 	filename := "logs.log"
 	pwd, err := os.Getwd()
 	if err != nil {
@@ -38,5 +39,5 @@ func Logging(returnedErr error) {
 	defer file.Close()
 
 	logger := log.New(file, "", log.Flags())
-	logger.Printf("%s\n", returnedErr.Error())
+	logger.Printf("%s\n", errr.Error())
 }
